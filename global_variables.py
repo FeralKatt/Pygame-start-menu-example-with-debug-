@@ -14,8 +14,6 @@ fpsClock = pygame.time.Clock()
 screen_width = 1440
 screen_height = 900
 
-DISPLAYONE = pygame.Surface((1150, 560))
-
 
 CYAN     = (255,   0, 255)
 BLACK    = (  0,   0,   0)

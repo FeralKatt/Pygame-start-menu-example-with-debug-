@@ -6,6 +6,7 @@ from images.images import *
 import ptext
 from global_variables import *
 from gui import Gui
+from gui import *
 from main import *
 
 
@@ -131,30 +132,25 @@ def title_screen():
 
             ### DEBUG FONT
 
-            debugFont = pygame.font.SysFont('comicsansms', 10)
-            debugFontColor = RED
+            debugFont = pygame.font.SysFont('comicsansms', 15)
+            debugFontColor = WHITE
 
             if mouseClicked:
                 print(debugMW, debugMH)
 
             fpsSurfObj = debugFont.render(debugFps, True, debugFontColor)
-            # fpsRect = fpsSurfObj.get_rect()
             fpsDB = fpsSurfObj
 
             widthSurfObj = debugFont.render(debugW, True, debugFontColor)
-            # widthRect = widthSurfObj.get_rect()
             widthDB = widthSurfObj
 
             heightSurfObj = debugFont.render(debugH, True, debugFontColor)
-            # heightRect = heightSurfObj.get_rect()
             heightDB = heightSurfObj
 
             mousexSurfObj = debugFont.render(debugMW, True, debugFontColor)
-            # mousexRect = mousexSurfObj.get_rect()
             mousexDB = mousexSurfObj
 
             mouseySurfObj = debugFont.render(debugMH, True, debugFontColor)
-            # mousexRect = mouseySurfObj
             mouseyDB = mouseySurfObj
 
             SCREEN.blit(fpsDB, (250, 200)) # TODO CHANGE AS NEEDED
@@ -250,30 +246,25 @@ def options_menu():
             debugMH = str(mousey)
             debugMW = str(mousex)
 
-            ### DEBUG FONT
+            """ DEBUG  """
 
-            debugFont = pygame.font.SysFont('comicsansms', 10)
-            debugFontColor = RED
+            debugFont = pygame.font.SysFont('comicsansms', 15)
+            debugFontColor = WHITE
             if mouseClicked:
                 print(debugMW, debugMH)
             fpsSurfObj = debugFont.render(debugFps, True, debugFontColor)
-            fpsRect = fpsSurfObj.get_rect()
             fpsDB = fpsSurfObj
 
             widthSurfObj = debugFont.render(debugW, True, debugFontColor)
-            widthRect = widthSurfObj.get_rect()
             widthDB = widthSurfObj
 
             heightSurfObj = debugFont.render(debugH, True, debugFontColor)
-            heightRect = heightSurfObj.get_rect()
             heightDB = heightSurfObj
 
             mousexSurfObj = debugFont.render(debugMW, True, debugFontColor)
-            mousexRect = mousexSurfObj.get_rect()
             mousexDB = mousexSurfObj
 
             mouseySurfObj = debugFont.render(debugMH, True, debugFontColor)
-            mousexRect = mouseySurfObj
             mouseyDB = mouseySurfObj
 
             SCREEN.blit(fpsDB, (250, 200)) # TODO CHANGE AS NEEDED
@@ -285,15 +276,31 @@ def options_menu():
         pygame.display.flip()
 
 
-def new_game():  # TODO figure this shit out
+def new_game():
+    screen_erase = True
+
     while True:
+        SCREEN.fill((0, 0, 0))  ### DEBUG for DEBUG LOL
+
+        if screen_erase:
+            SCREEN.fill((0, 0, 0)) ### Erases screen
+            pygame.display.flip()
+            screen_erase = False
+
         for event in pygame.event.get():
             if event.type == QUIT or (event.type == KEYUP and event.key == K_ESCAPE):
                 pygame.quit()
                 sys.exit()
 
-        #pygame.draw.rect(SCREEN, BLACK, Gui.SCREENONEIN)
-        #SCREEN.blit(DISPLAYONE, (5, 5))
-        #pygame.display.update(Gui.SCREENONERect)
 
-        pygame.display.flip()  #DEBUG
+        """ The following is only going to look stupid because its just demonstrating something"""
+
+        """ Draws a NAVY rectangle on the top left, then draws another black one in the center of it"""
+
+        pygame.draw.rect(SCREEN, NAVY, Gui.SCREENONE, 6)
+
+        # Bottom
+        pygame.draw.rect(SCREEN, NAVY, Gui.SCREENTWO, 6)
+
+        display.flip()
+        fpsClock.tick(FPS)
