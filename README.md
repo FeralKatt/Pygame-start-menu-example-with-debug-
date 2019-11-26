@@ -10,4 +10,4 @@ Even to me this is all ugly now but I figure it may help someone some where.
 Also if this was all done in Python 3.8 and Pygame 2.0
 
 
-If yopu click on the red DEBUG menu it will give some DEBUG info. Mouse cords are printed in the python console.
+If you click on the red DEBUG menu it will give some DEBUG info. Mouse cords are printed in the python console.
